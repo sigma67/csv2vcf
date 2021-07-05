@@ -29,6 +29,7 @@ with [vCard property types](https://en.wikipedia.org/wiki/VCard)
 
 Format is `{KEY_1:KEY_1_COLUMN_NO, KEY_2:KEY_2_COLUMN_NO, ...}`
 
+On Windows, you have to escape the JSON.
 
 ###### Example :
 
@@ -50,6 +51,10 @@ Suppose you have a CSV file `contacts.csv` with the following content :
 To convert this file to vCard, you will have to write :
 
 `python csv2vcf.py contacts.csv some/output/dir '{"name":1, "tel":2}'`
+
+On Windows, you have to escape the JSON:
+
+`python csv2vcf.py "contacts.csv" "some/output/dir"  "{\"name\":1, \"tel\":2}'`
 
 ## Copyright and license :
 

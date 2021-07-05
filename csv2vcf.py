@@ -85,12 +85,11 @@ if __name__ == '__main__':
         raise Exception(error_msg)
     print("Creating files under {output_dir}".format(output_dir=output_dir))
     students_array = csv_to_students_array(input_file, input_file_format)
+    students_single = ""
     for student in students_array:
-        filename = student.file_name()
-        filepath = os.path.join(output_dir, filename)
-        with open(filepath, "w") as f:
-            f.write(str(student))
-            print(conf_fmt.format(
-                value=student.name_to_value_dict,
-                filename = filename
-            ))
+        students_single += str(student) + '\n'
+    filename = "contacts.vcf"
+    filepath = os.path.join(output_dir, filename)
+    with open(filepath, "w") as f:
+        f.write(str(students_single))
+        print("contacts written to file " + filepath)
